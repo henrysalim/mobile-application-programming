@@ -23,13 +23,13 @@ class MainActivity : AppCompatActivity() {
             val nameInput = findViewById<TextInputEditText>(R.id.name_input)?.text.toString().trim()
             val numberInput = findViewById<TextInputEditText>(R.id.number_input)?.text.toString().trim()
 
-            if(numberInput.length < 11)
-                Toast.makeText(this, getString(R.string.number_error), Toast.LENGTH_LONG).apply {
-                    setGravity(Gravity.CENTER, 0, 0)
-                    show()
-                }
-
             if (nameInput.isNotEmpty() && numberInput.isNotEmpty()) {
+                if(numberInput.length < 11)
+                    Toast.makeText(this, getString(R.string.number_error), Toast.LENGTH_LONG).apply {
+                        setGravity(Gravity.CENTER, 0, 0)
+                        show()
+                    }
+
                 nameDisplay?.text = getString(R.string.name_greet).plus(" ").plus(nameInput)
             } else {
                 if (nameInput.isEmpty() && numberInput.isEmpty())
